@@ -9,5 +9,6 @@ namespace PlanningPersonal.Models
         [Required]  
         public string Name { get; set; }
         public bool Activo { get; set; } = true;
+        public ICollection<Employee> Employees { get; set; }
     }
 }
