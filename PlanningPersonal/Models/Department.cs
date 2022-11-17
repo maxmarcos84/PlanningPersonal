@@ -8,7 +8,7 @@ namespace PlanningPersonal.Models
         public int Id { get; set; }
         [Required]  
         public string Name { get; set; }
-        public bool Activo { get; set; } = true;
+        public bool IsActive { get; set; } = true;
         public ICollection<Employee> Employees { get; set; }
     }
 }

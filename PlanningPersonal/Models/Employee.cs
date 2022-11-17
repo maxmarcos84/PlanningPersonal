@@ -12,6 +12,7 @@ namespace PlanningPersonal.Models
         public string LastName { get; set; }
         public string Dni { get; set; }
         public string EmployeeNumber { get; set; }
+        public bool IsActive { get; set; } = true;
         [ForeignKey("Company")]
         public int CompanyId { get; set; }
         public Company Company { get; set; }
