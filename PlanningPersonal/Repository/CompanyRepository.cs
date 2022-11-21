@@ -28,7 +28,7 @@ namespace PlanningPersonal.Repository
 
         public async Task<IEnumerable<Company>> GetAllAsync()
         {
-            return await _context.Companies.ToListAsync();
+            return await _context.Companies.Where(c => c.IsActive == true).ToListAsync();
         }
 
         public async Task<Company?> GetByIdAsync(int id)
@@ -36,9 +36,9 @@ namespace PlanningPersonal.Repository
             return await _context.Companies.FirstOrDefaultAsync(i => i.Id == id && i.IsActive == true);
         }
 
-        public Task<Company?> GetByNameAsync(string name)
+        public async Task<IEnumerable<Company?>> GetByNameAsync(string name)
         {
-            throw new NotImplementedException();
+            return await _context.Companies.Where(c => c.Name.Contains(name)).ToListAsync();
         }
 
         public bool Save()

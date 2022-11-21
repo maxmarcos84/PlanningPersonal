@@ -6,7 +6,7 @@ namespace PlanningPersonal.Interfaces
     public interface ICompanyRepository
     {
         Task<Company?> GetByIdAsync(int id);
-        Task<Company?> GetByNameAsync(string name);
+        Task<IEnumerable<Company?>> GetByNameAsync(string name);
         Task<IEnumerable<Company>> GetAllAsync();
         bool Add(Company company);
         bool Update(Company company);
