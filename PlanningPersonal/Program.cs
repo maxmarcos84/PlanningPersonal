@@ -1,10 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using PlanningPersonal.Data;
+using PlanningPersonal.Interfaces;
+using PlanningPersonal.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IRotationRepository, RotationRepository>();
+builder.Services.AddScoped<IWorkingSiteRepository, WorkingSiteRepository>();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
