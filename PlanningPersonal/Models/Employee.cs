@@ -22,6 +22,6 @@ namespace PlanningPersonal.Models
         [ForeignKey("WorkingSite")]
         public int? WorkingSiteId { get; set; }
         public WorkingSite? WorkingSite { get; set; }
-        public ICollection<Rotation> Rotations { get; set; }
+        public ICollection<Rotation>? Rotations { get; set; }
     }
 }

@@ -1,16 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PlanningPersonal.Interfaces;
 using PlanningPersonal.Models;
+using PlanningPersonal.DTOs;
+using AutoMapper;
 
 namespace PlanningPersonal.Controllers
 {
     public class CompanyController : Controller
     {
         private readonly ICompanyRepository _companyRepository;
+        private readonly IMapper _mapper;
 
-        public CompanyController(ICompanyRepository companyRepository)
+        public CompanyController(ICompanyRepository companyRepository, IMapper mapper)
         {
             _companyRepository = companyRepository;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
@@ -25,9 +29,13 @@ namespace PlanningPersonal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Company company)
+        public IActionResult Create(CompanyDto companyDto)
         {
-            if (!ModelState.IsValid) { return View(company); }
+            var company = _mapper.Map<Company>(companyDto);
+            if (!ModelState.IsValid) 
+            { 
+                return View(companyDto); 
+            }
             _companyRepository.Add(company);
             return RedirectToAction("Index");
         }

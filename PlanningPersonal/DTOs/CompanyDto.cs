@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PlanningPersonal.Models
+namespace PlanningPersonal.DTOs
 {
-    public class Department
+    public class CompanyDto
     {
         [Key]
         public int Id { get; set; }
-        [Required]  
+        [Required]
         public string Name { get; set; }
+        public string? Description { get; set; }
+        public string? Address { get; set; }
         public bool? IsActive { get; set; } = true;
-        public ICollection<Employee>? Employees { get; set; }
     }
 }

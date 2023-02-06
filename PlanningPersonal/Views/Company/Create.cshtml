@@ -1,23 +1,27 @@
-﻿@model Company
+﻿@model PlanningPersonal.DTOs.CompanyDto
 
 @{
 }
 
 <form method="post" asp-action="Create">
     <div class="form-group">
-        <label asp-for="Name">Nombre de la Compañia</label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <div>
+            <label asp-for="Name">Nombre de la Compañia</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Description">Breve descripcion de la compañia</label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Address">Direccion</label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>        
     </div>
-    <div class="form-group">
-        <label asp-for="Description">Breve descripcion de la compañia</label>
-        <input asp-for="Description" class="form-control" maxlength="30" />
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Address">Direccion</label>
-        <input asp-for="Address" class="form-control"  />
-        <span asp-validation-for="Address" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Agregar</button>
+    
+    
 </form>
