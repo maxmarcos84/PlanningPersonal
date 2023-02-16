@@ -8,6 +8,11 @@ namespace PlanningPersonal.DTOs
         public Mapper()
         {
             CreateMap<CompanyDto, Company>();
+            CreateMap<Company, CompanyDto>();
+            CreateMap<WorkingSiteDto, WorkingSite>();
+            CreateMap<WorkingSite, WorkingSiteDto>();
+            CreateMap<DepartmentDto, Department>();
+            CreateMap<Department, DepartmentDto>();
         }
     }
 }

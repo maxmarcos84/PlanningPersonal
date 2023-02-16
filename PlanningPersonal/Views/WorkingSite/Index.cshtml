@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PlanningPersonal.DTOs.CompanyDto>
+﻿@model IEnumerable<PlanningPersonal.DTOs.WorkingSiteDto>
 
 @{
 }
@@ -6,9 +6,9 @@
 
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Companies</h1>
+        <h1 class="h3 mb-0 text-gray-800">Working Sites</h1>
         <a asp-action="Create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-plus fa-sm text-white-50"></i> New Company
+            <i class="fas fa-plus fa-sm text-white-50"></i> New Site
         </a>
     </div>
     <div class="row">
@@ -23,11 +23,10 @@
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         @item.Name
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">@item.Description</div>
                                 </div>
                                 <div class="col-auto">
-                                    <a type="button" class="btn btn-sm" asp-controller="Company" asp-action="Delete" asp-route-id="@item.Id"
-                               onclick="return confirm('Are you sure you wants to delete?');">
+                                    <a type="button" class="btn btn-sm" asp-controller="WorkingSite" asp-action="Delete" asp-route-id="@item.Id"
+                                   onclick="return confirm('Are you sure you wants to delete?');">
                                         <i class="fas fa-trash text-gray-300"></i>
                                     </a>
                                 </div>
@@ -37,8 +36,8 @@
                 </div>
             }
         }else{
-            <h1>No Companies to display</h1>
+            <h1>No Sites to display</h1>
         }
-               
+        
     </div>
 </div>

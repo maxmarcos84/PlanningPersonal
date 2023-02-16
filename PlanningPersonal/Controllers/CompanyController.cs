@@ -20,7 +20,8 @@ namespace PlanningPersonal.Controllers
         public async Task<IActionResult> Index()
         {
             IEnumerable<Company> companies = await _companyRepository.GetAllAsync();
-            return View(companies);
+            IEnumerable<CompanyDto> companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companies);
+            return View(companiesDto);
         }
 
         public IActionResult Create()
@@ -37,6 +38,18 @@ namespace PlanningPersonal.Controllers
                 return View(companyDto); 
             }
             _companyRepository.Add(company);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var company = await _companyRepository.GetByIdAsync(id);
+            if (company != null)
+            {
+                company.IsActive = false;
+                _companyRepository.Save();
+            } 
             return RedirectToAction("Index");
         }
     }
