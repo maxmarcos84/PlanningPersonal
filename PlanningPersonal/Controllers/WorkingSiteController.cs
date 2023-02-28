@@ -29,6 +29,18 @@ namespace PlanningPersonal.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Create(WorkingSiteDto workingSiteDto)
+        {
+            var workingSite = _mapper.Map<WorkingSite>(workingSiteDto);
+            if (!ModelState.IsValid)
+            {
+                return View(workingSiteDto);
+            }
+            _workingSiteRepository.Add(workingSite);
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {

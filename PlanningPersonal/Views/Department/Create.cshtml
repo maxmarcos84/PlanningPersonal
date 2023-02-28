@@ -1,0 +1,21 @@
+﻿@model PlanningPersonal.DTOs.DepartmentDto
+@{
+}
+
+<form method="post" asp-action="Create">
+    <div class="form-group">
+        <div>
+            <label asp-for="Name">Nombre del departamento</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Description">Breve descripcion del departamento</label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>        
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </div>
+
+
+</form>
