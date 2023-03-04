@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using PlanningPersonal.Data;
+using PlanningPersonal.Interfaces;
 using PlanningPersonal.Models;
 
 namespace PlanningPersonal.DTOs
@@ -13,6 +15,9 @@ namespace PlanningPersonal.DTOs
             CreateMap<WorkingSite, WorkingSiteDto>();
             CreateMap<DepartmentDto, Department>();
             CreateMap<Department, DepartmentDto>();
+            CreateMap<Employee, EmployeeDto>();
+            CreateMap<CreateEmployeeDto, Employee>();               
         }
+        
     }
 }

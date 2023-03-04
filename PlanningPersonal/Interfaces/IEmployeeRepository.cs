@@ -1,4 +1,5 @@
-﻿using PlanningPersonal.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using PlanningPersonal.Models;
 
 namespace PlanningPersonal.Interfaces
 {
@@ -6,6 +7,9 @@ namespace PlanningPersonal.Interfaces
     {
         Task<Employee?> GetByIdAsync(int id);
         Task<IEnumerable<Employee>> GetAllAsync();
+        public List<SelectListItem> GetCompaniesList();
+        public List<SelectListItem> GetDepartmentList();
+        public List<SelectListItem> GetWorkingSitesList();
         bool Add(Employee employee);
         bool Update(Employee employee);
         bool Delete(Employee employee);

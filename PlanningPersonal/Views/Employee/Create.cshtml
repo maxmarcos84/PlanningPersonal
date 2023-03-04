@@ -1,0 +1,50 @@
+﻿@model PlanningPersonal.DTOs.CreateEmployeeDto
+@{
+    List<SelectListItem> companiesItems = (List<SelectListItem>)ViewBag.companiesItem;
+    List<SelectListItem> departmentItems = (List<SelectListItem>)ViewBag.departmentItem;
+    List<SelectListItem> sitesItems = (List<SelectListItem>)ViewBag.siteItem;
+}
+
+<form method="post" asp-action="Create">
+    <div class="form-group">
+        <div>
+            <label asp-for="Name">Nombre</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <label asp-for="Name">Apellido</label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Dni">DNI</label>
+            <input asp-for="Dni" class="form-control" />
+            <span asp-validation-for="Dni" class="text-danger"></span>
+            <label asp-for="EmployeeNumber">IGG</label>
+            <input asp-for="EmployeeNumber" class="form-control" />
+            <span asp-validation-for="EmployeeNumber" class="text-danger"></span>            
+        </div>
+        <div>
+            <label asp-for=CompanyId>Company</label>            
+            <select asp-for="CompanyId" asp-items="companiesItems" class="form-control">
+                <option value="">--Select--</option>
+            </select>
+            <span asp-validation-for="CompanyId" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for=DepartmentId>Department</label>
+            <select asp-for="DepartmentId" asp-items="departmentItems" class="form-control">
+                <option value="">--Select--</option>
+            </select>            
+        </div>
+        <div>
+            <label asp-for=WorkingSiteId>Working Site</label>
+            <select asp-for="WorkingSiteId" asp-items="sitesItems" class="form-control" >
+                <option value="">--Select--</option>
+                
+            </select>
+        </div>
+        <button style="margin-top:5px" type="submit" class="btn btn-primary">Agregar</button>
+    </div>
+
+
+</form>
