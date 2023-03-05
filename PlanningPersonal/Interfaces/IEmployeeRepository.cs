@@ -10,6 +10,7 @@ namespace PlanningPersonal.Interfaces
         public List<SelectListItem> GetCompaniesList();
         public List<SelectListItem> GetDepartmentList();
         public List<SelectListItem> GetWorkingSitesList();
+        public Task<IEnumerable<Employee>> SearchByText(string text);
         bool Add(Employee employee);
         bool Update(Employee employee);
         bool Delete(Employee employee);

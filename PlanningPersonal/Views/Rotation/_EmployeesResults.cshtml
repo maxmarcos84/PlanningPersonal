@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Employee>
+
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="search-tag" id="@item.Id">
+            <div class="search-tag-detail">
+                @item.LastName @item.Name @item.EmployeeNumber                
+            </div>
+        </div>
+    }
+</div>
+
+

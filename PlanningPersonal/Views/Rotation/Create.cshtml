@@ -1,0 +1,44 @@
+﻿
+@{
+}
+
+<div>
+    <input id="livesearch" name="livesearch" placeholder="Search" autocomplete="off" />
+
+    <div id="result" class="tag-results">
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        let timeout = null;
+        document.getElementById('livesearch').addEventListener('keyup', function (e) {
+            // Clear existing timeout
+            clearTimeout(timeout);
+
+            // Reset the timeout to start again
+            timeout = setTimeout(function () {
+                LiveSearch()
+            }, 800);
+        });
+
+        function LiveSearch() {
+            //Get the input value
+            let value = document.getElementById('livesearch').value
+
+            $.ajax({
+                type: "POST",
+                // You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below
+                url: "/Rotation/getEmployees",
+                // Attach the value to a parameter called search
+                data: { search: value },
+                datatype: "html",
+                success: function (data) {
+                    // Insert the returned search results html into the result element
+                    $('#result').html(data);
+                }
+            });
+        }
+
+    </script>
+}

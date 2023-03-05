@@ -16,3 +16,23 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.search-tag-detail {
+    display: flex;
+    flex-direction: row;
+    padding: 3px;    
+    border-radius: 3px;
+}
+.search-tag-detail:hover{
+    background-color:cyan;
+}
+
+.search-tag {
+    display: grid;
+    margin: 2px 2px 2px 0px;
+}
+
+.tag-results {
+    display: grid;
+    width:fit-content;
+}

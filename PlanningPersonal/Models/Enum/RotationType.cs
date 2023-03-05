@@ -6,7 +6,8 @@
         Rest,
         Holliday,
         License,
-        MedicalLicense
+        MedicalLicense,
+        Other
 
     }
 }

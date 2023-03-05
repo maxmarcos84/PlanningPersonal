@@ -87,6 +87,12 @@ namespace PlanningPersonal.Repository
             });
             return lista;
         }
+        
+        public async Task<IEnumerable<Employee>> SearchByText(string text)
+        {
+            return await _context.Employees.Where(e => e.Name.Contains(text) || e.LastName.Contains(text)
+            || e.EmployeeNumber.Contains(text) || e.Dni.Contains(text)).ToListAsync();
+        }
 
         public bool Save()
         {
