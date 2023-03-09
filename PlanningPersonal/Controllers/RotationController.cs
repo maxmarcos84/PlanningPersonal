@@ -27,12 +27,18 @@ namespace PlanningPersonal.Controllers
 
         public async Task<IActionResult> getEmployees(string search)
         {
-            var res = await _employeeRepo.SearchByText(search);
+            //var res = await _employeeRepo.SearchByText(search);
+            var res = _employeeRepo.SearchByTextSelectList(search);
+            
             return PartialView("_EmployeesResults", res);
         }
 
-        public IActionResult Create()
+        public IActionResult Create(string id)
         {
+            if(id != null)
+            {
+                ViewBag.id = id.ToString();
+            }            
             return View();
         }
     }

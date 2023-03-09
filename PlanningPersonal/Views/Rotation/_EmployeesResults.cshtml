@@ -1,11 +1,12 @@
-﻿@model IEnumerable<Employee>
+﻿@model List<SelectListItem>
 
 <div>
     @foreach (var item in Model)
     {
-        <div class="search-tag" id="@item.Id">
-            <div class="search-tag-detail">
-                @item.LastName @item.Name @item.EmployeeNumber                
+        <div class="search-tag" id="@item.Value">
+            <div class="search-tag-detail">                
+                @Html.ActionLink(@item.Text, "Create",
+                "Rotation", new{id = @item.Value}, new{@class = "btn"})
             </div>
         </div>
     }

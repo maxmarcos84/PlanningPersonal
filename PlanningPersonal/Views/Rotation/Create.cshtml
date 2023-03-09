@@ -1,11 +1,15 @@
 ﻿
 @{
+    string idEmpleado = ViewBag.id;
 }
 
 <div>
-    <input id="livesearch" name="livesearch" placeholder="Search" autocomplete="off" />
+    <input id="livesearch" name="livesearch" placeholder="Search" autocomplete="off" class="form-control" />
 
     <div id="result" class="tag-results">
+    </div>
+    <div>
+        <h1>@idEmpleado</h1>
     </div>
 </div>
 
@@ -19,7 +23,7 @@
             // Reset the timeout to start again
             timeout = setTimeout(function () {
                 LiveSearch()
-            }, 800);
+            }, 300);
         });
 
         function LiveSearch() {
