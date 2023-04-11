@@ -1,17 +1,50 @@
-﻿
+﻿@model PlanningPersonal.Models.Rotation
 @{
-    string idEmpleado = ViewBag.id;
+    string employeeName = ViewBag.EmployeeName;
+    string employeeLastName = ViewBag.EmployeeLastName;
+    string employeeNumber = ViewBag.EmployeeNumber;
+    string id = ViewBag.EmployeeId;
 }
 
-<div>
-    <input id="livesearch" name="livesearch" placeholder="Search" autocomplete="off" class="form-control" />
-
-    <div id="result" class="tag-results">
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <input id="livesearch" name="livesearch" placeholder="Search" autocomplete="off" class="form-control" />
+            <div id="result" class="tag-results"></div>
+        </div>
     </div>
-    <div>
-        <h1>@idEmpleado</h1>
-    </div>
+    <hr />
+    @if(Model != null){
+        <form method="post" asp-action="Create">
+            <div class="container" style="margin-top:5px">
+                <div class="row">
+                    <div class="col-6">
+                        <h1> @employeeName @employeeLastName @employeeNumber</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label asp-for="DateFrom">Fecha Desde</label>
+                        <input asp-for="DateFrom" class="form-control" />
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="DateTo">Fecha Hasta</label>
+                        <input asp-for="DateTo" class="form-control" />
+                    </div>
+                    <div class="col-3">
+                        <h4>Location</h4>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    }    
+   
 </div>
+<div>
+    
+</div>
+
 
 @section Scripts{
     <script>

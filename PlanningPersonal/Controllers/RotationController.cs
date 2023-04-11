@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PlanningPersonal.DTOs;
 using PlanningPersonal.Interfaces;
 using PlanningPersonal.Models;
+using System.Dynamic;
 
 namespace PlanningPersonal.Controllers
 {
@@ -33,11 +35,24 @@ namespace PlanningPersonal.Controllers
             return PartialView("_EmployeesResults", res);
         }
 
-        public IActionResult Create(string id)
+        public async Task<IActionResult> Create(string id)
         {
             if(id != null)
             {
-                ViewBag.id = id.ToString();
+                int idEmployee = 0;
+                if (int.TryParse(id, out idEmployee))
+                {
+                    Employee employee = await _employeeRepo.GetByIdAsync(idEmployee);                    
+                    if (employee != null)
+                    {
+                        var rotation = new Rotation();
+                        ViewBag.EmployeeId = employee.Id.ToString();
+                        ViewBag.EmployeeName = employee.Name;
+                        ViewBag.EmployeeLastName = employee.LastName;
+                        ViewBag.EmployeeNumber = employee.EmployeeNumber;
+                        return View(rotation);
+                    }                    
+                }                 
             }            
             return View();
         }
